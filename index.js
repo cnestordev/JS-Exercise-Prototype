@@ -26,6 +26,9 @@ Airplane.prototype.land = function () {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+let style = 'background: red; color: white'
+
+console.log('%c ********** TAKS 1 **********', style)
 /*
   TASK 1
     - Write a Person Constructor that initializes `name` and `age` from arguments.
@@ -39,9 +42,35 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = []
 }
+
+Person.prototype.eat = function (foodItem) {
+  if (this.stomach.length !== 10) {
+    this.stomach.push(foodItem)
+  }
+}
+
+Person.prototype.poop = function () {
+  this.stomach = []
+}
+
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`
+}
+
+const person1 = new Person("Nestor", 32)
+person1.eat("Pizza")
+console.log(person1)
+person1.poop()
+console.log(person1)
+
+
+
+console.log('%c ********** TAKS 2 **********', style)
 
 /*
   TASK 2
@@ -57,9 +86,40 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function (gallons) {
+  this.tank = this.tank + gallons
+}
+
+Car.prototype.drive = function (miles) {
+  let gallonPerMile = 1 / this.milesPerGallon
+  let totalMilageAvailable = this.tank * this.milesPerGallon
+  if (this.tank > 0) {
+    for (let i = 0; i < miles; i++) {
+      if (totalMilageAvailable > gallonPerMile) {
+        this.tank = Number((this.tank - gallonPerMile).toFixed(2))
+        this.odometer = this.odometer + 1
+        totalMilageAvailable = this.tank * this.milesPerGallon
+      } else {
+        return `I ran out of fuel at ${i} miles!`;
+        break;
+      }
+    }
+  } else {
+    return "you don't have any gas for this trip, please fill up"
+  }
+}
+
+const car1 = new Car("Cherokee", 20)
+car1.fill(5)
+console.log(car1)
+
 
 /*
   TASK 3
