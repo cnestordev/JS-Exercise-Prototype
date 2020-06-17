@@ -26,9 +26,9 @@ Airplane.prototype.land = function () {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
-let style = 'background: red; color: white'
+let style = 'background: #f75e40; color: white; padding: 5px; border: 1px solid white'
 
-console.log('%c ********** TAKS 1 **********', style)
+console.log('%c *********************** TAKS 1 ***********************', style)
 /*
   TASK 1
     - Write a Person Constructor that initializes `name` and `age` from arguments.
@@ -70,7 +70,7 @@ console.log(person1)
 
 
 
-console.log('%c ********** TAKS 2 **********', style)
+console.log('%c *********************** TAKS 2 ***********************', style)
 
 /*
   TASK 2
@@ -122,7 +122,7 @@ console.log(car1)
 
 
 
-console.log('%c ********** TAKS 3 **********', style)
+console.log('%c *********************** TAKS 3 ***********************', style)
 
 /*
   TASK 3
@@ -147,7 +147,7 @@ Baby.prototype.play = function () {
 const baby1 = new Baby("Jan", 1, "Rattle")
 console.log(baby1)
 
-console.log('%c ********** TAKS 4 **********', style)
+console.log('%c *********************** TAKS 4 ***********************', style)
 console.log('%c answers to questions can be found on index.js', style)
 
 /* 
