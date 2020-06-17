@@ -121,6 +121,9 @@ car1.fill(5)
 console.log(car1)
 
 
+
+console.log('%c ********** TAKS 3 **********', style)
+
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -128,18 +131,34 @@ console.log(car1)
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age)
+  this.favoriteToy = favoriteToy
 }
+
+Baby.prototype = Object.create(Person.prototype)
+
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`
+}
+
+
+
+const baby1 = new Baby("Jan", 1, "Rattle")
+console.log(baby1)
+
+console.log('%c ********** TAKS 4 **********', style)
+console.log('%c answers to questions can be found on index.js', style)
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window binding: This is the default.  When the 'this' keyboard is not being used in the context of an object, it will bind to the window context.
+  2. New binding:  When a constructor function is created, the 'this' keyword will be assigned to a new context each time the 'new' keyword is used and will bind itself to the new object that was created from that constructor.
+  3. Implicit binding:  The 'this' keyword will automatically refer to the direct object in which it was called. This is going to be the object to the left of the dot in which it was invoked.
+     Example: Obj1.funct(), assuming funct() makes use of the 'this' keyword, it will refer to Obj1.  ObjParent.objChild.func(), this will refer to objChild because objChild is the object in which the function was invoked from.  It is implied that 'this' means the immediate context.
+  4. Explicit binding:  The 'this' keyword is explicitly assigned to a particular object using the call, apply, bind keywords.  The 'this' keyword will be changed to whatever the user told it to bind itself to.
 */
 
 
